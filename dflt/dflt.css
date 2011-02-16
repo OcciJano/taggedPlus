@@ -1,0 +1,48 @@
+/* default */
+#navheader {background: none !important;}
+#navheader_top {background: black !important;}
+#navheader_btm {background: #333333 !important;}
+
+#inner_container {background: none repeat fixed top left !important;}
+#profile_banner {
+	height: 0px !important;
+	background: white none repeat top left !important;
+}
+#col1, #col2 {
+	border: 0px none black !important; border-radius: 0px !important;
+	background: white none repeat top left !important;
+	-webkit-box-shadow: none !important;
+}
+#page_content {background : transparent none repeat top left !important;}
+#page_displayname h1 {
+	font: bold 1em Arial, Helvetica, sans-serif !important;
+	color: black !important;
+}
+.box_header {
+	height: auto !important;
+	border-bottom: 2px solid #E5E5E5 !important;
+	background: #F8F8F8 none repeat top left !important;
+	padding: 3px 5px !important;
+	text-align: left !important;
+}
+.box_header h3 {
+	font: bold 1em Arial, Helvetica, sans-serif !important;
+	color: black !important;
+}
+.box_header select {position: absolute !important;}
+.box_body, .profile_box {
+	font: 1em Arial, Helvetica, sans-serif !important;
+	color: black !important;
+	border: 0px none black !important; border-radius: 0px !important;
+	background: white none repeat top left !important;
+	-webkit-box-shadow: none !important;
+}
+.box_body a, .box_body a:hover, .profile_box a, .profile_box a:hover {
+	font: 1em Arial !important;
+	color: #000098 !important;
+}
+#footer {
+	color: black !important;
+	text-shadow: none !important;
+}
+#footer a, #footer a:hover {color: #000098 !important;}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>navi_bar</string>
+		<key>Title</key>
+		<string>Make "Navigation Bar" static</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>brow_bar</string>
+		<key>Title</key>
+		<string>Use "Browse Bar" as a dock</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>foot_bot</string>
+		<key>Title</key>
+		<string>Move "Footer" to bottom in Home</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>navi_key</string>
+		<key>Title</key>
+		<string>Use arrows as navigation keys</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>dont</string>
+		<key>Key</key>
+		<string>skin_men</string>
+		<key>Title</key>
+		<string>Skin</string>
+		<key>Titles</key>
+		<array>
+			<string>Don't sustitute</string>
+			<string>Every as Default</string>
+			<string>Every as Blue</string>
+			<string>Every as Marble</string>
+			<string>Every as Metal</string>
+			<string>Every as Wood</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>dont</string>
+			<string>dflt</string>
+			<string>blue</string>
+			<string>grey</string>
+			<string>meta</string>
+			<string>wood</string>
+		</array>
+	</dict>
+</array>
+</plist>
