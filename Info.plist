@@ -5,15 +5,15 @@
 	<key>Author</key>
 	<string>Alex de Moure</string>
 	<key>CFBundleDisplayName</key>
-	<string>Tagged Plus</string>
+	<string>taggedPlus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.janus.tagged</string>
+	<string>com.Janus.taggedPlus</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7.3</string>
+	<string>0.7.4</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>7.4</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -49,8 +49,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>https://github.com/downloads/OcciJano/tagged.safariextension/Tagged.safariextz</string>
+	<string>https://github.com/downloads/OcciJano/taggedPlus/Tagged.safariextz</string>
 	<key>Website</key>
-	<string>http://OcciJano.github/tagged.safariextension</string>
+	<string>http://OcciJano.github.com/</string>
 </dict>
 </plist>

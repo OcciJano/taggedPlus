@@ -1,40 +1,50 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- global.html © 2011 Alex de Moure -->
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<script type="text/javascript"> <!--type="text/javascript" src="global.js"-->
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript">
 
-	function perf(menu, event) {
-		if (menu == "dont") {
-			whitelist = ["http://www.tagged.com/*"];
-			base = safari.extension.baseURI + 'tagged.css';
-			safari.extension.removeContentStyleSheets();
-			safari.extension.addContentStyleSheetFromURL(base, whitelist);
-		} else {
-			whitelist = ["http://www.tagged.com/profile.html*"];
-			base = safari.extension.baseURI + menu + '/' + menu + '.css';
-			safari.extension.addContentStyleSheetFromURL(base, whitelist);
+		function skin(menu, event) {
+			URIbase = safari.extension.baseURI;
+			if (menu == "dont") {
+				whitelist = ["http://www.tagged.com/*"];
+				base = URIbase + 'tagged.css';
+				safari.extension.removeContentStyleSheets();
+				safari.extension.addContentStyleSheetFromURL(base, whitelist)
+			} else {
+				whitelist = ["http://www.tagged.com/profile.html*"];
+				base = URIbase + menu + '/' + menu + '.css';
+				safari.extension.addContentStyleSheetFromURL(base, whitelist)
+			}
 		}
-	}
 
-	function respondToMessage(event) {
-		var theSettings;
-		perf(safari.extension.settings.skin_men, event);
-		theSettings = {
-			"Navi": safari.extension.settings.navi_bar,
-			"Brow": safari.extension.settings.brow_bar,
-			"Foot": safari.extension.settings.foot_bot,
-			"Keys": safari.extension.settings.navi_key,
-			"Skin": safari.extension.settings.skin_men
+		function respondToMessage(event) {
+			var winds = safari.application.browserWindows;
+			skin(safari.extension.settings.skin_men, event);
+			for (var w = 0; w < winds.length; w++) {
+				tabs = winds[w].tabs;
+				for (var t = 0; t < tabs.length; t++) {
+					tab = tabs[t];
+					if (tab != undefined && tab.page != undefined && tab.url.indexOf("www.tagged.com") != -1) {sendSettings(tab)}
+				}
+			}
 		}
-		safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("settings", theSettings);
-	}
 
-	safari.application.addEventListener("message", respondToMessage, false);
-	safari.extension.settings.addEventListener("change", respondToMessage, false);
+		function sendSettings(tab) {
+			var theSettings;
+			theSettings = {
+				"Navi": safari.extension.settings.navi_bar,
+				"Brow": safari.extension.settings.brow_bar,
+				"Foot": safari.extension.settings.foot_bot,
+				"Keys": safari.extension.settings.navi_key,
+				"Skin": safari.extension.settings.skin_men
+			}
+			tab.page.dispatchMessage("settings", theSettings)
+		}
 
-	</script>
-</head>
-<body> </body>
+		safari.application.addEventListener("message", respondToMessage, false);
+		safari.extension.settings.addEventListener("change", respondToMessage, false)
+
+		</script>
+	</head>
 </html>

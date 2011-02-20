@@ -1,3 +1,5 @@
+/* tagged.css © 2011 Alex de Moure */
+
 #navheader {
 	z-index: auto !important;
 	position: static !important;
@@ -55,6 +57,11 @@
 #inner_container.menu {padding-top: 69px !important;}
 
 #column1.fija, #column3.fija {position: fixed !important;}
+.column2.gris {
+	width: 480px !important;
+	background-color: rgba(234,234,234,0.9) !important;
+	border: 1px inset rgba(160,160,160,0.4) !important;
+}
 
 #footer.fijo {position: fixed !important;}
 #footer.fondo {
