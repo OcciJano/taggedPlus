@@ -6,7 +6,7 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
-		<string>navi_bar</string>
+		<string>navi</string>
 		<key>Title</key>
 		<string>Make "Navigation Bar" static</string>
 		<key>Type</key>
@@ -16,7 +16,7 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
-		<string>brow_bar</string>
+		<string>brow</string>
 		<key>Title</key>
 		<string>Use "Browse Bar" as a dock</string>
 		<key>Type</key>
@@ -26,7 +26,7 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
-		<string>foot_bot</string>
+		<string>foot</string>
 		<key>Title</key>
 		<string>Move "Footer" to bottom in Home</string>
 		<key>Type</key>
@@ -36,7 +36,7 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
-		<string>navi_key</string>
+		<string>keys</string>
 		<key>Title</key>
 		<string>Use arrows as navigation keys</string>
 		<key>Type</key>
@@ -46,7 +46,7 @@
 		<key>DefaultValue</key>
 		<string>dont</string>
 		<key>Key</key>
-		<string>skin_men</string>
+		<string>skin_menu</string>
 		<key>Title</key>
 		<string>Skin</string>
 		<key>Titles</key>
@@ -65,10 +65,126 @@
 			<string>dont</string>
 			<string>dflt</string>
 			<string>blue</string>
-			<string>grey</string>
+			<string>marb</string>
 			<string>meta</string>
 			<string>wood</string>
 		</array>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>sett</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>comt</string>
+		<key>Title</key>
+		<string>Show profile box "Comments"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>tags</string>
+		<key>Title</key>
+		<string>Show profile box "Tags"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>vide</string>
+		<key>Title</key>
+		<string>Show profile box "Videos"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>ques</string>
+		<key>Title</key>
+		<string>Show profile box "Questions"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>gift</string>
+		<key>Title</key>
+		<string>Show profile box "Gifs"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>phot</string>
+		<key>Title</key>
+		<string>Show profile box "Photos"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>grou</string>
+		<key>Title</key>
+		<string>Show profile box "Groups"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>jour</string>
+		<key>Title</key>
+		<string>Show profile box "Journals"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>news</string>
+		<key>Title</key>
+		<string>Show profile box "What’s New Box"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>lwal</string>
+		<key>Title</key>
+		<string>Show profile box "Left Wall"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>rwal</string>
+		<key>Title</key>
+		<string>Show profile box "Right Wall"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
 	</dict>
 </array>
 </plist>

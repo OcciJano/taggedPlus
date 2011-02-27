@@ -5,45 +5,89 @@
 		<script type="text/javascript">
 
 		function skin(menu, event) {
-			URIbase = safari.extension.baseURI;
-			if (menu == "dont") {
-				whitelist = ["http://www.tagged.com/*"];
+			var URIbase = safari.extension.baseURI;
+			var whiteList, base;
+			if (menu === "dont") {
+				whiteList = ["http://www.tagged.com/*"];
 				base = URIbase + 'tagged.css';
 				safari.extension.removeContentStyleSheets();
-				safari.extension.addContentStyleSheetFromURL(base, whitelist)
+				safari.extension.addContentStyleSheetFromURL(base, whiteList);
 			} else {
-				whitelist = ["http://www.tagged.com/profile.html*"];
+				whiteList = ["http://www.tagged.com/profile.html*"];
 				base = URIbase + menu + '/' + menu + '.css';
-				safari.extension.addContentStyleSheetFromURL(base, whitelist)
+				safari.extension.addContentStyleSheetFromURL(base, whiteList);
 			}
 		}
 
-		function respondToMessage(event) {
-			var winds = safari.application.browserWindows;
-			skin(safari.extension.settings.skin_men, event);
-			for (var w = 0; w < winds.length; w++) {
-				tabs = winds[w].tabs;
-				for (var t = 0; t < tabs.length; t++) {
-					tab = tabs[t];
-					if (tab != undefined && tab.page != undefined && tab.url.indexOf("www.tagged.com") != -1) {sendSettings(tab)}
-				}
+		function changeSetting(event) {
+			var pref = safari.extension.settings;
+			var value = event.message;
+			switch (value) {
+				case "navi": pref.navi = !pref.navi; break;
+				case "brow": pref.brow = !pref.brow; break;
+				case "foot": pref.foot = !pref.foot; break;
+				case "keys": pref.keys = !pref.keys; break;
+				case "dont": pref.skin = value; break;
+				case "dflt": pref.skin = value; break;
+				case "blue": pref.skin = value; break;
+				case "marb": pref.skin = value; break;
+				case "meta": pref.skin = value; break;
+				case "wood": pref.skin = value; break;
+				case "comt": pref.comt = !pref.comt; break;
+				case "tag_": pref.tags = !pref.tags; break;
+				case "vide": pref.vide = !pref.vide; break;
+				case "ques": pref.ques = !pref.ques; break;
+				case "gift": pref.gift = !pref.gift; break;
+				case "phot": pref.phot = !pref.phot; break;
+				case "grou": pref.grou = !pref.grou; break;
+				case "jour": pref.jour = !pref.jour; break;
+				case "news": pref.news = !pref.news; break;
+				case "lwal": pref.lwal = !pref.lwal; break;
+				case "rwal": pref.rwal = !pref.rwal; break;
+				default: break;
 			}
 		}
 
 		function sendSettings(tab) {
-			var theSettings;
-			theSettings = {
-				"Navi": safari.extension.settings.navi_bar,
-				"Brow": safari.extension.settings.brow_bar,
-				"Foot": safari.extension.settings.foot_bot,
-				"Keys": safari.extension.settings.navi_key,
-				"Skin": safari.extension.settings.skin_men
-			}
-			tab.page.dispatchMessage("settings", theSettings)
+			var pref = safari.extension.settings;
+			var theSettings = {
+				"navi": pref.navi,
+				"brow": pref.brow,
+				"foot": pref.foot,
+				"keys": pref.keys,
+				"skin": pref.skin,
+				"setd": pref.sett,
+				"comt": pref.comt,
+				"tag_": pref.tags,
+				"vide": pref.vide,
+				"ques": pref.ques,
+				"gift": pref.gift,
+				"phot": pref.phot,
+				"grou": pref.grou,
+				"jour": pref.jour,
+				"news": pref.news,
+				"lwal": pref.lwal,
+				"rwal": pref.rwal
+			};
+			tab.page.dispatchMessage("settings", theSettings);
 		}
 
+		function respondToMessage(event) {
+			var w, t, tabs, tab;
+			var winds = safari.application.browserWindows;
+			if (event.name === "setSetting") { changeSetting(event); }
+			skin(safari.extension.settings.skin, event);
+			for (w = 0; w < winds.length; w++) {
+				tabs = winds[w].tabs;
+				for (t = 0; t < tabs.length; t++) {
+					tab = tabs[t];
+					if (tab !== undefined && tab.page !== undefined && tab.url.indexOf("www.tagged.com") !== -1) {sendSettings(tab);}
+				}
+			}
+		}
+
+		safari.extension.settings.addEventListener("change", respondToMessage, false);
 		safari.application.addEventListener("message", respondToMessage, false);
-		safari.extension.settings.addEventListener("change", respondToMessage, false)
 
 		</script>
 	</head>

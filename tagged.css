@@ -7,12 +7,12 @@
 	word-spacing: -2px !important;
 	height: 63px !important;
 }
-#navheader.flota {
+#navheader.fix {
 	z-index: 1234567 !important;
 	position: fixed !important;
 	width: 100% !important;
 	opacity: 0.9 !important;
-	-webkit-box-shadow: 0px 2px 8px #000 !important;
+	box-shadow: 0px 2px 8px #000 !important;
 }
 
 #browse_bar_hc {margin: auto !important; display: none !important;}
@@ -28,15 +28,14 @@
 	display: block !important;
 	position: relative !important;
 	top: 65px;
-	background-color: #F2F2F2 !important;
-	opacity: 0.9 !important;
+	background-color: rgba(238,238,238,0.85) !important;
 	border-radius: 0px 0px 5px 5px !important;
-	-webkit-box-shadow: 0px 0px 8px #000 !important;
+	box-shadow: 0px 0px 8px #000 !important;
 	-webkit-transition-property: top !important;
 	-webkit-transition-delay: 0.4s !important;
 	-webkit-transition-duration: 0.5s !important;
 }
-#browse_bar_hc.flota {
+#browse_bar_hc.fix {
 	width: 612px !important;
 	z-index: 12345678 !important;
 	display: block !important;
@@ -45,9 +44,9 @@
 	bottom: -46px;
 	right: 0px !important;
 	height: 50px !important;
-	background-color: rgba(235,235,235,0.9) !important;
+	background-color: rgba(238,238,238,0.82) !important;
 	border-top-left-radius: 5px !important;
-	-webkit-box-shadow: 0px 0px 8px #000 !important;
+	box-shadow: 0px 0px 8px #000 !important;
 	-webkit-transition-property: bottom !important;
 	-webkit-transition-delay: 0.4s !important;
 	-webkit-transition-duration: 0.5s !important;
@@ -56,22 +55,59 @@
 #inner_container {padding-top: 2px !important;}
 #inner_container.menu {padding-top: 69px !important;}
 
-#column1.fija, #column3.fija {position: fixed !important;}
-.column2.gris {
+#column1.fix, #column3.fix {position: fixed !important;}
+.column2.gray {
 	width: 480px !important;
-	background-color: rgba(234,234,234,0.9) !important;
-	border: 1px inset rgba(160,160,160,0.4) !important;
+	background-color: rgb(238,238,238) !important;
+	border: 1px solid #ababab !important;
+	border-radius: 7px !important;
+	box-shadow: inset 0px 0px 7px #808080 !important;
+/*	box-shadow: 3px 3px 5px #999 !important;*/
 }
 
-#footer.fijo {position: fixed !important;}
-#footer.fondo {
+#footer.fix {position: fixed !important;}
+#footer.bottom {
 	margin: auto !important;
 	width: 960px !important;
 	position: relative !important;
 	left: auto !important;
 }
 
-/* fixes */
+#prefs {
+	height: 512px !important; width: 31px !important;
+	top: 78px; left: -1px;
+	z-index: 100000001 !important;
+	background-color: rgba(238,238,238,0.7) !important;
+	border-radius: 0px 5px 5px 0px !important;
+	position: fixed !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	margin: auto !important;
+	box-shadow: 0px 0px 8px #000 !important;
+	-webkit-transition-property: left !important;
+	-webkit-transition-delay: 0.4s !important;
+	-webkit-transition-duration: 0.5s !important;
+}
+.miniIcon {
+	width: 16px !important;
+	height: 16px !important;
+	margin: 0px !important;
+	margin-top: 4px !important;
+	margin-left: 4px !important;
+}
+.onOff {
+	width: 8px !important;
+	height: 16px !important;
+	margin: 0px !important;
+	margin-top: 4px !important;
+}
+#dash {
+	width: 23px !important;
+	height: 7px !important;
+	margin: 0px !important;
+	margin-left: 4px !important;
+}
+
 #mailbox_view, #mailbox_layout {float: center !important;}
 #customize {
 	z-index: 123456789 !important;
@@ -85,6 +121,6 @@
 	border-top-right-radius: 5px !important;
 	border-top: 1px solid rgba(200,200,200,0.9) !important;
 	border-right: 1px solid rgba(200,200,200,0.9) !important;
-	-webkit-box-shadow: 0px 0px 8px #111 !important;
+	box-shadow: 0px 0px 8px #111 !important;
 }
 #c11n_feedback {width: 354px !important; border-bottom-right-radius: 5px !important;}

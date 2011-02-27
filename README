@@ -5,16 +5,17 @@ It's main functions are:
 1) Make "Navigation Bar" static: Option to make the Tagged menu bar fixed at top.
 2) Use "Browse Bar" as a dock: If you use "Browse" to search, this option moves the browser at bottom-right, it's also auto hidding like a dock.
 3) Move "Footer" to bottom in Home: Moves the page footer to the bottom only on Home page.
-4) Use arrows as navigation keys: Option to browse photos using the arrow keys: left arrow and right arrow.
+4) Use arrows as navigation keys: Option to browse photos using the arrow keys: left arrow and right arrow. Works on the old "Photo gallery" and "Browser", not needed in the new "Preview photos".
 5) Skins: There are times when the background color and text doesn't contrast, the extension offers an option to change "Skins" globally, the choices are: default skin, 4 skin designs, and of course the option to not replace it.
-It also fixes the "Change Skin" module in Safari.
+6) Boxes: Option to hide/show several boxes on profiles.
+It also fixes the "Change Skin" module in Safari if you use AdBlock.
 
-This is the version 0.7.4, is fully functional, I have plans to increase its functions, options, etc.. up to the version 1.0
+This is the version 0.8.0, is fully functional, I have plans to increase its functions, options, etc.. up to the version 1.0
 
 Download it here:
 https://github.com/downloads/OcciJano/taggedPlus/tagged.safariextz
 
-It requieres Safari 5.0.1 or later.
+Requieres Safari 5.0.1 or later.
 --------------------------------------------------------
 Hola todo mundo, quiero hacer publica mi extensión Safari para Tagged "taggedPlus".
 
@@ -22,12 +23,13 @@ Sus funciones principales son:
 
 1) Make "Navigation Bar" static: Opción de fijar la Barra del menú Tagged en el tope superior.
 2) Use "Browse Bar" as a dock: Si usas "Browse" (explorar, examinar) para buscar, esta opción mueve el navegador al fondo-derecha, también se auto esconde como un "Dock".
-3) Move "Footer" to bottom in Home: Mueve el pie de página al fondo only solo en la página home.
-4) Use arrows as navigation keys: Opción para poder ver "Navegar" las fotos usando las teclas: flecha izquierda y flecha derecha.
+3) Move "Footer" to bottom in Home: Mueve el pie de página al fondo solo en la página home.
+4) Use arrows as navigation keys: Opción para poder ver "Navegar" las fotos usando las teclas: flecha izquierda y flecha derecha. Funciona en la antigua "Galería de fotos" y en "Explorador", no es necesario en el "Visualizador de fotos" nuevo.
 5) Skin: Hay veces que el color de fondo y el texto no contrastan, se ofrece la opción de cambiar globalmente la apariencia (diseño o fondo), las opciones son: "default", 4 diseños, y por supuesto, la opción de no sustituirlo.
-También corrige el módulo de "Cambiar apariencia" en Safari.
+6) Boxes: Opción para esconder/mostrar diversos recuedros en perfiles.
+También corrige el módulo de "Cambiar apariencia" en Safari si usas AdBlock.
 
-Esta es la versión 0.7.4, es totalmente funcional, tengo planeado aumentar sus funciones, opciones, etc. hasta llegar a la versión 1.0
+Esta es la versión 0.8.0, es totalmente funcional, tengo planeado aumentar sus funciones, opciones, etc. hasta llegar a la versión 1.0
 
 Bájalo desde aquí:
 https://github.com/downloads/OcciJano/taggedPlus/tagged.safariextz
