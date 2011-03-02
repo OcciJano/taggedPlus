@@ -2,8 +2,9 @@
 
 if (window.top === window && window.location.host === 'www.tagged.com') {
 
-	var setting;
+	var setting, timer;
 	var thePath = window.location.pathname;
+	var playPause = false;
 
 	var clickOn = function() {
 		var value;
@@ -45,14 +46,60 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 		safari.self.tab.dispatchMessage("setSetting", pref);
 	};
 
+	var boton = function(which) { $(which).click( function() {clickOn();} ); };
+
 	var key = function(theKey) {
+
+		var photoShow = function() {
+			$('#next_photo').click();
+			timer = setTimeout(function() { photoShow(); }, 3600);
+		};
+
+		var profileShow = function() {
+			$('#browse_bar_right').click();
+			timer = setTimeout(function() { profileShow(); }, 4900);
+		};
+
+		var playPhotos = function() {
+			if( playPause === true) {
+				clearTimeout(timer);
+				playPause = false;
+			} else {
+				playPause = true;
+				photoShow();
+			}
+		};
+
+		var playProfiles = function() {
+			if( playPause === true) {
+				clearTimeout(timer);
+				playPause = false;
+			} else {
+				playPause = true;
+				profileShow();
+			}
+		};
+
 		if (theKey.target.nodeName === 'BODY' && $('body.masked')[0] === undefined) {
-			if (theKey.keyCode === 37) {
-				if (thePath === '/photo_view.html') {$('#prev_photo').click();}
-				else {$('#browse_bar_left').click();}
-			} else if (theKey.keyCode === 39) {
-				if (thePath === '/photo_view.html') {$('#next_photo').click();}
-				else {$('#browse_bar_right').click();}
+			switch (theKey.keyCode) {
+				case 37:	//left
+					if (thePath === '/photo_view.html') {$('#prev_photo').click();}
+					else if (document.URL.indexOf("mini") > -1) {$('#browse_bar_left').click();}
+					break;
+				case 39:	//right
+					if (thePath === '/photo_view.html') {$('#next_photo').click();}
+					else if (document.URL.indexOf("mini") > -1) {$('#browse_bar_right').click();}
+					break;
+				case 27:	//esc
+					clearTimeout(timer);
+					playPause = false;
+					break;
+				case 32:	//space bar
+					if (thePath === '/photo_view.html') { playPhotos(); }
+					else if (document.URL.indexOf("mini") > -1) { playProfiles(); }
+					else { clearTimeout(timer); playPause = false; }
+					break;
+				default: break;
 			}
 		}
 	};//id="preview_photos_mask"
@@ -72,6 +119,7 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 				if ($('#column1')[0] === undefined) {$('div.column1').wrapInner('<div id="column1" class="column1" />');}
 				if ($('#column3')[0] === undefined) {$('div.column3').wrapInner('<div id="column3" class="column3" />');}
 				$('.column2').addClass('gray');
+				$('#newsfeed').addClass('gray');
 				$('#column1').addClass('fix');
 				$('#column3').addClass('fix');
 			}
@@ -84,6 +132,7 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 			$('#inner_container').removeClass('menu');
 			if (thePath === '/home.html') {
 				$('.column2').removeClass('gray');
+				$('#newsfeed').removeClass('gray');
 				$('#column1').removeClass('fix');
 				$('#column3').removeClass('fix');
 			}
@@ -122,9 +171,9 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 			$('#prefs').mouseenter(function(){$('#prefs').css('left','-1px');}).mouseleave(function(){$('#prefs').css('left','-20px');});
 			$('#prefs').css('left', '-20px');
 			var p;
-			var thePrefs = ['navi','brow','foot','keys','dont','dflt','blue','marb','meta',
-							'wood','comt','tag_','vide','ques','gift','phot','grou','jour',
-							'news','lwal','rwal'];
+			var thePrefs = ['navi','brow','foot','keys','dont','dflt','blue','marb',
+							'meta','wood','comt','tag_','vide','ques','gift','phot',
+							'grou','jour','news','lwal','rwal'];
 			var theTitle = ['Navigation Bar','Browse Dock','Home Footer','Arrow Keys',
 							'Don’t substitute','Every as Default','Every as Blue',
 							'Every as Marble','Every as Metal','Every as Wood',
@@ -138,11 +187,11 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 				if (setting[pref] === true) {visible = 'on.png';} else if (setting[pref] === false) {visible = 'off.png';}
 				else if (pref === setting.skin) {visible = 'on.png';} else {visible = 'off.png';}
 				$('#prefs').append('<img id="' +pref+ '"' +src+pref+ '.png" title="' +theTitle[p]+ '" class="miniIcon"><img id="' +pref+ 'vis"' +src+visible+ '" class="onOff">');
-				$('img#'+pref).click( function() {clickOn();} );
+				boton('img#'+pref);
 			}
 			$('#dont').before('<img id="dash"' + src +'dashes.png">');
 			$('#comt').before('<img id="dash"' + src +'dashes.png">');
-		}
+		} // setting.setd
 		if (thePath === "/profile.html" && document.URL.indexOf("mini") < 1) {
 			if (setting.comt === true) {$("#comments").show();} else {$("#comments").hide();}
 			if (setting.tag_ === true) {$("#tags").show();} else {$("#tags").hide();}
@@ -155,7 +204,7 @@ if (window.top === window && window.location.host === 'www.tagged.com') {
 			if (setting.news === true) {$("#whatsnew").show();} else {$("#whatsnew").hide();}
 			if (setting.lwal === true) {$("#custom_1").show();} else {$("#custom_1").hide();}
 			if (setting.rwal === true) {$("#custom_2").show();} else {$("#custom_2").hide();}
-			$('#page_content').Heigh(0);
+			$('#page_content').Height(0);
 		} // setting.boxes
 	}; // fin handleMessage
 
