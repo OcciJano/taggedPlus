@@ -97,10 +97,7 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				case 32:	//space bar
 					if (thePath === '/photo_view.html') { playPhotos(); }
 					else if (document.URL.indexOf("mini") > -1) { playProfiles(); }
-					else if (thePath === '/photo_gallery.html') {
-						$(window.location.href='http://www.tagged.com/photo_view.html' + location.search + '#state=0_0').ready(playPhotos());
-						playPhotos();
-					} else { clearTimeout(timer); playPause = false; }
+					else { clearTimeout(timer); playPause = false; }
 					break;
 				default: break;
 			}
