@@ -1,0 +1,94 @@
+<!DOCTYPE html> <!-- global.html © 2011 Alex de Moure -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+
+		function skin(menu, event) {
+			var URIbase = safari.extension.baseURI;
+			var whiteList, base;
+			if (menu === "dont") {
+				whiteList = ["http://www.tagged.com/*"];
+				base = URIbase + 'tagged.css';
+				safari.extension.removeContentStyleSheets();
+				safari.extension.addContentStyleSheetFromURL(base, whiteList);
+			} else {
+				whiteList = ["http://www.tagged.com/profile.html*"];
+				base = URIbase + menu + '/' + menu + '.css';
+				safari.extension.addContentStyleSheetFromURL(base, whiteList);
+			}
+		}
+
+		function changeSetting(event) {
+			var pref = safari.extension.settings;
+			var value = event.message;
+			switch (value) {
+				case "navi": pref.navi = !pref.navi; break;
+				case "brow": pref.brow = !pref.brow; break;
+				case "foot": pref.foot = !pref.foot; break;
+				case "keys": pref.keys = !pref.keys; break;
+				case "dont": pref.skin = value; break;
+				case "dflt": pref.skin = value; break;
+				case "blue": pref.skin = value; break;
+				case "marb": pref.skin = value; break;
+				case "meta": pref.skin = value; break;
+				case "wood": pref.skin = value; break;
+				case "comt": pref.comt = !pref.comt; break;
+				case "tag_": pref.tags = !pref.tags; break;
+				case "vide": pref.vide = !pref.vide; break;
+				case "ques": pref.ques = !pref.ques; break;
+				case "gift": pref.gift = !pref.gift; break;
+				case "phot": pref.phot = !pref.phot; break;
+				case "grou": pref.grou = !pref.grou; break;
+				case "jour": pref.jour = !pref.jour; break;
+				case "news": pref.news = !pref.news; break;
+				case "lwal": pref.lwal = !pref.lwal; break;
+				case "rwal": pref.rwal = !pref.rwal; break;
+				default: break;
+			}
+		}
+
+		function sendSettings(tab) {
+			var pref = safari.extension.settings;
+			var theSettings = {
+				"navi": pref.navi,
+				"brow": pref.brow,
+				"foot": pref.foot,
+				"keys": pref.keys,
+				"skin": pref.skin,
+				"sett": pref.sett,
+				"comt": pref.comt,
+				"tag_": pref.tags,
+				"vide": pref.vide,
+				"ques": pref.ques,
+				"gift": pref.gift,
+				"phot": pref.phot,
+				"grou": pref.grou,
+				"jour": pref.jour,
+				"news": pref.news,
+				"lwal": pref.lwal,
+				"rwal": pref.rwal
+			};
+			tab.page.dispatchMessage("settings", theSettings);
+		}
+
+		function respondToMessage(event) {
+			var w, t, tabs, tab;
+			var winds = safari.application.browserWindows;
+			if (event.name === "setSetting") { changeSetting(event); }
+			skin(safari.extension.settings.skin, event);
+			for (w = 0; w < winds.length; w++) {
+				tabs = winds[w].tabs;
+				for (t = 0; t < tabs.length; t++) {
+					tab = tabs[t];
+					if (tab !== undefined && tab.page !== undefined && tab.url.indexOf("www.tagged.com") !== -1) {sendSettings(tab);}
+				}
+			}
+		}
+
+		safari.extension.settings.addEventListener("change", respondToMessage, false);
+		safari.application.addEventListener("message", respondToMessage, false);
+
+		</script>
+	</head>
+</html>
