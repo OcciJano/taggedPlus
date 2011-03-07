@@ -46,7 +46,7 @@
 		<key>DefaultValue</key>
 		<string>dont</string>
 		<key>Key</key>
-		<string>skin_menu</string>
+		<string>skin</string>
 		<key>Title</key>
 		<string>Skin</string>
 		<key>Titles</key>
