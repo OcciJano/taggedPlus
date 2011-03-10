@@ -76,8 +76,23 @@
 }
 
 #prefs {
-	height: 512px !important; width: 32px !important;
-	top: 78px; left: 0px;
+	height: 93px !important; width: 32px !important;
+	top: 77px; left: 0px;
+	z-index: 100000001 !important;
+	background-color: rgba(248,248,248,0.45) !important;
+	border-radius: 0px 5px 5px 0px !important;
+	position: fixed !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	margin: auto !important;
+	-webkit-box-shadow: 0px 0px 8px #000 !important;
+	-webkit-transition-property: left !important;
+	-webkit-transition-delay: 0.4s !important;
+	-webkit-transition-duration: 0.5s !important;
+}
+#boxes {
+	height: 254px !important; width: 32px !important;
+	top: 206px; left: 0px;
 	z-index: 100000001 !important;
 	background-color: rgba(248,248,248,0.45) !important;
 	border-radius: 0px 5px 5px 0px !important;
@@ -102,6 +117,26 @@
 	height: 16px !important;
 	margin: 0px !important;
 	margin-top: 4px !important;
+}
+#skins {
+	height: 24px !important; width: 144px !important;
+	top: 176px; left: 0px;
+	z-index: 100000002 !important;
+	background-color: rgba(248,248,248,0.45) !important;
+	border-radius: 0px 5px 5px 0px !important;
+	position: fixed !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	margin: auto !important;
+	-webkit-box-shadow: 0px 0px 8px #000 !important;
+	-webkit-transition-property: left !important;
+	-webkit-transition-delay: 0.4s !important;
+	-webkit-transition-duration: 0.5s !important;
+}
+.unSel {
+	width: 16px !important;
+	height: 16px !important;
+	margin: 1px !important;
 }
 #dash {
 	width: 28px !important;

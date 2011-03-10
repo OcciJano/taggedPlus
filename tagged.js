@@ -5,19 +5,19 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 	var thePath = window.location.pathname;
 	var timer, setting;
 	var playPause = false;
+	const baseImg = safari.extension.baseURI + 'images/';
 
 	var clickOn = function() {
 		var value;
 		var pref = event.target.id;
-		var baseImg = safari.extension.baseURI + 'images/';
 
 		function turnOff(pref) { $("img#"+pref+'vis').attr('src', baseImg + 'off.png'); }
 		function turnOn(pref) { $("img#"+pref+'vis').attr('src', baseImg + 'on.png'); }
 		function turnSkin(pref) {
 			const theSkins = ['dont','dflt','blue','marb','meta','wood'];
 			var s;
-			for (s = 0; s < theSkins.length; s++) { $("img#"+ theSkins[s] +'vis').attr('src', baseImg + 'off.png'); }
-			$('img#'+pref+'vis').attr('src', baseImg + 'on.png');
+			for (s = 0; s < theSkins.length; s++) {$('img#'+ theSkins[s]).css({'border':'3px solid transparent'});}
+			$('img#'+pref).css({'border':'3px solid #019934'});
 		}
 
 		switch (pref) {
@@ -97,12 +97,15 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				case 32:	//space bar
 					if (thePath === '/photo_view.html') { playPhotos(); }
 					else if (document.URL.indexOf("mini") > -1) { playProfiles(); }
-					else { clearTimeout(timer); playPause = false; }
+					else if (thePath === '/photo_gallery.html') {
+						$(window.location.href='http://www.tagged.com/photo_view.html' + location.search + '#state=0_0').ready(playPhotos());
+						playPhotos();
+					} else { clearTimeout(timer); playPause = false; }
 					break;
 				default: break;
 			}
 		}
-	};//id="preview_photos_mask"
+	};
 
 	var handleMessage = function(event) {
 
@@ -136,7 +139,7 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				$('#column1').removeClass('fix');
 				$('#column3').removeClass('fix');
 			}
-		} // generar updt
+		}							// navi
 		if ($('#browse_bar')[0] !== null) {
 			var bar = $('#browse_bar_hc')[0];
 			if (setting.brow === true) {
@@ -155,7 +158,7 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				$('#browse_bar_actions').css('display','block').css('margin-right','10px');
 				$('#browse_bar_title').css('display','block');
 			}
-		} // setting.brow generar updt
+		}								// brow
 		if (thePath === '/home.html') {
 			if (setting.foot === true) {
 				$('#page_content').css('paddingBottom', '0px');
@@ -164,34 +167,64 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				$('#page_content').css('paddingBottom', '35px');
 				$('#footer').removeClass('bottom').addClass('fix');
 			}
-		} // setting.foot
-		if (setting.keys === true) {$(document).keydown(function(theKey) {key(theKey);});}
+		}									// foot
+		if (setting.keys === true) {
+			$(document).keydown(function(theKey) {key(theKey);});
+		}									// keys
 		if (setting.sett === true && $('#prefs')[0] === undefined) {
 			$('body').append('<div id="prefs"></div>');
 			$('#prefs').mouseenter(function(){$('#prefs').css('left','0px');}).mouseleave(function(){$('#prefs').css('left','-28px');});
 			$('#prefs').css('left', '-28px');
 			var p;
-			const names =  ['navi','brow','foot','keys','dont','dflt','blue','marb',
-							'meta','wood','comt','tag_','vide','ques','gift','phot',
-							'grou','jour','news','lwal','rwal'];
-			const title =  ['Navigation Bar','Browse Dock','Home Footer','Arrow Keys',
-							'Don’t substitute','Every as Default','Every as Blue',
-							'Every as Marble','Every as Metal','Every as Wood',
-							'Comments Box','Tags Box','Videos Box','Questions Box',
-							'Gift Box','Photos Box','Groups Box','Journals Box',
-							'What’s New Box','Left Wall Box','Right Wall Box'];
-			var src = ' src="' + safari.extension.baseURI + 'images/';
+			const names =  ['navi','brow','foot','keys'];
+			const title =  ['Navigation Bar','Browse Dock','Home Footer','Arrow Keys'];
+			var src = ' src="' + baseImg;
 			for (p = 0; p < names.length; p++) {
 				var pref = names[p];
 				var show;
 				if (setting[pref] === true) {show = 'on.png';} else if (setting[pref] === false) {show = 'off.png';}
-				else if (pref === setting.skin) {show = 'on.png';} else {show = 'off.png';}
 				$('#prefs').append('<img id="' +pref+ 'vis"' +src+show+ '" class="onOff"><img id="' +pref+ '"' +src+pref+ '.png" title="' +title[p]+ '" class="miniIcon"><br />');
 				boton('img#'+pref);
 			}
-			$('#keys').after('<img id="dash"' + src +'dashes.png">');
-			$('#wood').after('<img id="dash"' + src +'dashes.png">');
-		} // setting.sett
+		}	// sett
+		if (setting.skns === true && $('#skins')[0] === undefined) {
+			$('body').append('<div id="skins"></div>');
+			$('#skins').mouseenter(function(){$('#skins').css('left','0px');}).mouseleave(function(){$('#skins').css('left','-140px');});
+			$('#skins').css('left', '-140px');
+			var p;
+			const names =  ['dont','dflt','blue','marb','meta','wood'];
+			const title =  ['Don’t substitute','Every as Default','Every as Blue',
+							'Every as Marble','Every as Metal','Every as Wood'];
+			var src = ' src="' + baseImg;
+			for (p = 0; p < names.length; p++) {
+				var pref = names[p];
+				$('#skins').append('<img id="' +pref+ '"' +src+pref+ '.png" title="' +title[p]+ '" class="unSel">');
+				if (pref === setting.skin) {
+					$('img#'+pref).css({'border':'3px solid #019934'});
+				} else {
+					$('img#'+pref).css({'border':'3px solid transparent'});
+				}
+				boton('img#'+pref);
+			}
+		}	// skns
+		if (setting.boxs === true && $('#boxes')[0] === undefined) {
+			$('body').append('<div id="boxes"></div>');
+			$('#boxes').mouseenter(function(){$('#boxes').css('left','0px');}).mouseleave(function(){$('#boxes').css('left','-28px');});
+			$('#boxes').css('left', '-28px');
+			var p;
+			const names =  ['comt','tag_','vide','ques','gift','phot','grou','jour','news','lwal','rwal'];
+			const title =  ['Comments Box','Tags Box','Videos Box','Questions Box',
+							'Gift Box','Photos Box','Groups Box','Journals Box',
+							'What’s New Box','Left Wall Box','Right Wall Box'];
+			var src = ' src="' + baseImg;
+			for (p = 0; p < names.length; p++) {
+				var pref = names[p];
+				var show;
+				if (setting[pref] === true) {show = 'on.png';} else if (setting[pref] === false) {show = 'off.png';}
+				$('#boxes').append('<img id="' +pref+ 'vis"' +src+show+ '" class="onOff"><img id="' +pref+ '"' +src+pref+ '.png" title="' +title[p]+ '" class="miniIcon"><br />');
+				boton('img#'+pref);
+			}
+		}	// boxs
 		if (thePath === "/profile.html" && document.URL.indexOf("mini") < 1) {
 			if (setting.comt === true) {$("#comments").show();} else {$("#comments").hide();}
 			if (setting.tag_ === true) {$("#tags").show();} else {$("#tags").hide();}
@@ -205,13 +238,13 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 			if (setting.lwal === true) {$("#custom_1").show();} else {$("#custom_1").hide();}
 			if (setting.rwal === true) {$("#custom_2").show();} else {$("#custom_2").hide();}
 			$('#page_content').Height(0);
-		} // setting.boxes
+		} // boxes
 	}; // handleMessage
 
 	if (thePath === '/profile.html') {
 		var used = $(window).height() - 6 - $('#navheader').innerHeight() - $('#footer').innerHeight();//$('#profile_banner').innerHeight() -
 		$('#page_content').css('minHeight', used + 'px !important');
-	} // fix view height
+	}									// fix height
 
 	safari.self.addEventListener('message', handleMessage, false);
 	safari.self.tab.dispatchMessage('getSettings', null);

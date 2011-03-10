@@ -80,6 +80,18 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
+		<string>skns</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>boxs</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
 		<string>comt</string>
 		<key>Title</key>
 		<string>Show profile box "Comments"</string>
