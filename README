@@ -5,14 +5,13 @@ It's main functions are:
 1) Make "Navigation Bar" static: Option to make Tagged Menu Bar static at top.
 2) Use "Browse Bar" as a dock: this option moves the Profile Browser to bottom-right, it's auto hidding like a dock.
 3) Move "Footer" to bottom in Home: Moves the page footer to the bottom only on Home page.
-4) Use arrows as navigation keys: Option to browse photos using the left and right arrow keys. Works on the old "Photo gallery" and "Browser", not needed in the new "Preview photos". ** New ** while viewing photos you can use "space bar" to start slide show, use "esc" to stop it, Also works if you use the Profile Browser. The slide show actualy is very basic, I'll improve it.
+4) Use arrows as navigation keys: Option to browse photos using the left and right arrow keys. Works on the old "Photo gallery" and "Browser", not needed in the new "Preview photos".
+** New ** while viewing photos you can use "space bar" to start slide show, use "esc" to stop it, Also works if you use the Profile Browser. The slide show actualy is very basic, I'll improve it.
 5) Skins: Some skin designs are hard to read, use this option to change "Skins" profiles, the choices are: default skin, 4 skin designs, and the option to not replace it. It also fixes the "Change Skin" module in Safari if you use AdBlock.
 6) Boxes: Several options to hide/show several boxes on profiles.
 7) Preferences Dock: Change taggedPlus settings directly, no need to open preferences window!
 
-Version 0.8.2, I have plans to increase its functions, options, etc.. up to the version 1.0. Will be free ever.
-
-Download it here:
+Download version 0.8.4 here:
 https://github.com/downloads/OcciJano/taggedPlus/taggedPlus.safariextz
 --------------------------------------------------------
 Hola usuarios de Tagged y Safari aquí está la extensión "taggedPlus" y es 100% gratuita.
@@ -22,12 +21,11 @@ Sus funciones principales son:
 1) Make "Navigation Bar" static: Opción para fijar la Barra del menú Tagged en el tope superior.
 2) Use "Browse Bar" as a dock: Si usas "Browse" (explorar, examinar) para ver perfiles, esta opción mueve el navegador al fondo-derecha, se auto esconde como un "Dock".
 3) Move "Footer" to bottom in Home: Mueve el pie de página al fondo solo en la página home.
-4) Use arrows as navigation keys: Opción para poder ver "Navegar" las fotos usando las teclas flecha izquierda y derecha. Funciona en la antigua "Galería de fotos" y en "Explorador", no es necesario en el "Visualizador de fotos" nuevo. ** Nuevo ** mientras ves fotos usa la "barra de espacio" para iniciar el "slide show", usa "esc" para detenerlo, También funciona si usas el Explorador de perfiles.
+4) Use arrows as navigation keys: Opción para poder ver "Navegar" las fotos usando las teclas flecha izquierda y derecha. Funciona en la antigua "Galería de fotos" y en "Explorador", no es necesario en el "Visualizador de fotos" nuevo.
+** Nuevo ** mientras ves fotos usa la "barra de espacio" para iniciar el "slide show", usa "esc" para detenerlo, También funciona si usas el Explorador de perfiles.
 5) Skin: Hay veces que el color de fondo y el texto no contrastan, se ofrece la opción de cambiar globalmente la apariencia (diseño o fondo) de perfiles, las opciones son: "default", 4 diseños, y la opción de no sustituirlo. También corrige el módulo de "Cambiar apariencia" en Safari si usas AdBlock.
 6) Boxes: Opción para esconder/mostrar diversos recuadros en perfiles.
 7) Preferences Dock: Haz ajustes a las opciones de taggedPlus directamente, sin abrir la ventana de preferencias!
 
-Versión 0.8.2, tengo planeado aumentar sus funciones, opciones, etc. hasta llegar a la versión 1.0. Siempre será gratuita.
-
-Bájalo desde aquí:
+Bájalo desde aquí, versión 0.8.4:
 https://github.com/downloads/OcciJano/taggedPlus/taggedPlus.safariextz
