@@ -1,11 +1,8 @@
 /* default.css © 2011 Alex de Moure */
 
-#navheader {background: none !important;}
-#navheader_top {background: black !important;}
-#navheader_btm {background: #333333 !important;}
 
 #inner_container {background: none repeat fixed top left !important;}
-#profile_banner {
+#profile_banner, .box_footer {
 	height: 0px !important;
 	background: white none repeat top left !important;
 }

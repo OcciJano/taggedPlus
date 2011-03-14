@@ -1,11 +1,8 @@
 /* metal.css © 2011 Alex de Moure */
-
-#navheader {background: none !important;}
-#navheader_top {background: black !important;}
-#navheader_btm {background: #333333 !important;}
 .tags_box_header {background : transparent !important;}
-#inner_container {background: url('MetalFloorsBare0021.jpg') repeat fixed top left !important;}
-#profile_banner {
+
+#inner_container {background: url('inte.jpg') repeat fixed top left !important;}
+#profile_banner, .box_footer {
 	height: 0px !important;
 	background: white none repeat top left !important;
 }

@@ -1,11 +1,8 @@
 /* wood.css © 2011 Alex de Moure */
+.tags_box_header {background: transparent !important;}
 
-#navheader {background: url('wood001.jpg') !important;}
-#navheader_top, #navheader_btm, .tags_box_header {background: transparent !important;}
-
-
-#inner_container {background: url('wood145.jpg') repeat fixed top left !important;}
-#profile_banner {
+#inner_container {background: url('inte.jpg') repeat fixed top left !important;}
+#profile_banner, .box_footer {
 	height: 0px !important;
 	background: white none repeat top left !important;
 }

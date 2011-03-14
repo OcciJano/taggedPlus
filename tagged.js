@@ -11,8 +11,8 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 		var value;
 		var pref = event.target.id;
 
-		function turnOff(pref) { $("img#"+pref+'vis').attr('src', baseImg + 'off.png'); }
 		function turnOn(pref) { $("img#"+pref+'vis').attr('src', baseImg + 'on.png'); }
+		function turnOff(pref) { $("img#"+pref+'vis').attr('src', baseImg + 'off.png'); }
 		function turnSkin(pref) {
 			const theSkins = ['dont','dflt','blue','marb','meta','wood'];
 			var s;
@@ -32,6 +32,7 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 			case "ques": value = setting.ques; break;
 			case "gift": value = setting.gift; break;
 			case "phot": value = setting.phot; break;
+			case "frie": value = setting.frie; break;
 			case "grou": value = setting.grou; break;
 			case "jour": value = setting.jour; break;
 			case "news": value = setting.news; break;
@@ -125,6 +126,7 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 				$('#newsfeed').addClass('gray');
 				$('#column1').addClass('fix');
 				$('#column3').addClass('fix');
+//				$('.column1 fix').load('http://www.tagged.com/friends.html#tab=1&type=0&filterpg=Online_0 #online_now_friends_thumbs')
 			}
 		} else {
 			$('#ad_unit_0_div').show();
@@ -212,9 +214,9 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 			$('#boxes').mouseenter(function(){$('#boxes').css('left','0px');}).mouseleave(function(){$('#boxes').css('left','-28px');});
 			$('#boxes').css('left', '-28px');
 			var p;
-			const names =  ['comt','tag_','vide','ques','gift','phot','grou','jour','news','lwal','rwal'];
+			const names =  ['comt','tag_','vide','ques','gift','phot','frie','grou','jour','news','lwal','rwal'];
 			const title =  ['Comments Box','Tags Box','Videos Box','Questions Box',
-							'Gift Box','Photos Box','Groups Box','Journals Box',
+							'Gift Box','Photos Box','Friends Box','Groups Box','Journals Box',
 							'What’s New Box','Left Wall Box','Right Wall Box'];
 			var src = ' src="' + baseImg;
 			for (p = 0; p < names.length; p++) {
@@ -226,17 +228,34 @@ if (window.top === window && window.location.host === 'www.tagged.com' && window
 			}
 		}	// boxs
 		if (thePath === "/profile.html" && document.URL.indexOf("mini") < 1) {
-			if (setting.comt === true) {$("#comments").show();} else {$("#comments").hide();}
+			if (setting.comt === true) {
+				if ($('#comments')[0] === undefined) {window.location.reload()}
+			} else {
+				$("#comments").empty().remove();
+			}
 			if (setting.tag_ === true) {$("#tags").show();} else {$("#tags").hide();}
-			if (setting.vide === true) {$("#videos").show();} else {$("#videos").hide();}
+			if (setting.vide === true) {
+				if ($('#videos')[0] === undefined) {window.location.reload()}
+			} else {
+				$("#videos").empty().remove();
+			}
 			if (setting.ques === true) {$("#questions").show();} else {$("#questions").hide();}
 			if (setting.gift === true) {$("#gifts").show();} else {$("#gifts").hide();}
 			if (setting.phot === true) {$("#photos").show();} else {$("#photos").hide();}
+			if (setting.frie === true) {$("#friends").show();} else {$("#friends").hide();}
 			if (setting.grou === true) {$("#groups").show();} else {$("#groups").hide();}
 			if (setting.jour === true) {$("#journals").show();} else {$("#journals").hide();}
 			if (setting.news === true) {$("#whatsnew").show();} else {$("#whatsnew").hide();}
-			if (setting.lwal === true) {$("#custom_1").show();} else {$("#custom_1").hide();}
-			if (setting.rwal === true) {$("#custom_2").show();} else {$("#custom_2").hide();}
+			if (setting.lwal === true) {
+				if ($('#custom_1')[0] === undefined) {window.location.reload()}
+			} else {
+				$("#custom_1").empty().remove();
+			}
+			if (setting.rwal === true) {
+				if ($('#custom_2')[0] === undefined) {window.location.reload()}
+			} else {
+				$("#custom_2").empty().remove();
+			}
 			$('#page_content').Height(0);
 		} // boxes
 	}; // handleMessage

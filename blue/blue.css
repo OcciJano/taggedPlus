@@ -1,11 +1,8 @@
-/* snowish.css © 2011 Alex de Moure */
+/* blue.css © 2011 Alex de Moure */
+.tags_box_header {background: transparent !important;}
 
-#navheader {background: url('blueGrad63.png') !important;}
-#navheader_top, #navheader_btm, .tags_box_header {background: transparent !important;}
-
-
-#inner_container {background: transparent url('blgr055.jpg') repeat fixed top left !important;}
-#profile_banner {
+#inner_container {background: transparent url('inte.jpg') repeat fixed top left !important;}
+#profile_banner, .box_footer {
 	height: 0px !important;
 	background: white none repeat top left !important;
 }
@@ -22,7 +19,7 @@
 .box_header {
 	height: 26px !important;
 	border: 0px none black !important; border-radius: 5px 5px 0px 0px !important;
-	background: transparent url('blueGrad26.png') repeat-x top left !important;
+	background: transparent url('cabe.png') repeat-x top left !important;
 	padding: 1px 5px !important;
 	text-align: left !important;
 }

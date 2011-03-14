@@ -91,7 +91,7 @@
 	-webkit-transition-duration: 0.5s !important;
 }
 #boxes {
-	height: 254px !important; width: 32px !important;
+	height: 277px !important; width: 32px !important;
 	top: 206px; left: 0px;
 	z-index: 100000001 !important;
 	background-color: rgba(248,248,248,0.45) !important;

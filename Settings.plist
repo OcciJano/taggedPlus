@@ -152,6 +152,16 @@
 		<key>DefaultValue</key>
 		<true/>
 		<key>Key</key>
+		<string>frie</string>
+		<key>Title</key>
+		<string>Show profile box "Friends"</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
 		<string>grou</string>
 		<key>Title</key>
 		<string>Show profile box "Groups"</string>
